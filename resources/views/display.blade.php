@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('cart')
-<div class="conteinar-fluid">
+<div class="conteinar">
     
 {{$message}}
     <h2>{{$user_name}}さんのカート</h2>
