@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('cart')
 <div class="conteinar">
-    
-{{$message}}
+<h3>{{$message}}</h3>
     <h2>{{$user_name}}さんのカート</h2>
     @foreach($infoCart as $deploy)
     <div class="card" style="width: 18rem; margin:10px;">

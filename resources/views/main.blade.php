@@ -3,7 +3,7 @@
 <div class="conteinar-fluid">
     <main>
         <div class="section1 p-5">
-            <h2 class="" style="text-align: center; padding-top:50px;">The Promontroy<br>３つのこだわり</h2><br>
+            <h2 class="" style="text-align: center;">The Promontroy<br>３つのこだわり</h2><br>
 
             <div class="row">
                 <div class="col-sm-6 col-xs-12 col-sm-offset-3 col-md-6 col-md-offset-3">
@@ -18,10 +18,10 @@
             </div>
         </div>
 
-        <div class="">
+        <div class="conteinar">
         <!--商品一覧-->
-        <h2 style="text-align: center; padding-top:50px;">商品一覧</h2>
-            <div class="row col-xs-12 col-sm-12 p-5">
+        <h2 style="text-align: center;">商品一覧</h2>
+            <div class="d-flex justify-content-center  row col-xs-12 col-sm-12 p-5">
                 @foreach($datas as $data)
                 <div class="card center-block" style="width: 18rem; margin:10px; text-align: center;">
                     <div class="card-img-top">

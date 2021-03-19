@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('cart')
-<div class="conteinar-flluid">
-<div class="card mb-3" style="max-width: 540px;">
+<div class="container">
+<div class="d-flex justify-content-center">
+<div class="card mb-3" style="max-width: 800px;">
   <div class="row no-gutters">
     <div class="col-md-4">
         @foreach($details as $detail)
@@ -15,15 +16,16 @@
         <p class="card-text">{{$detail->price}}</p>
         @endforeach
         <!--カートに追加-->
-        <form action="mycart" method="POST">
+        <form action="mycart" method="POST" >
             @csrf
             <input type="hidden" name="product" value="{{$detail->product_id}}">
             <input type="submit" class="btn btn-secondary btn-lg btn-block" value="カートに追加">
         </form>
-        <a href="{{ url('/') }}" class="btn btn-info btn-lg btn-block">商品一覧を見に行く</a>
+        <a href="{{ url('/') }}" class="mt-1 btn btn-info btn-lg btn-block">商品一覧を見に行く</a>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 <!--
