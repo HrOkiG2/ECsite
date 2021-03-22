@@ -78,8 +78,8 @@
     @yield('content')
     @yield('cart')
     
-    <div class="conteinar-fulid" style="background-color: skyblue; height:300px;">
-        f
+    <div class="conteinar-fulid" style="background-color: skyblue; height:150px;">
+        
     </div>
 </body>
 </html>
