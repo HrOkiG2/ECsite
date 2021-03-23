@@ -30,9 +30,7 @@ class Cart extends Model
     }
 
     public function a(Request $request){
-        $user_id=Auth::id();
         $delete=$request->delete;
-        dd($delete);
         return $delete;
     }
 }

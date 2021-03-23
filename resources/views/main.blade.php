@@ -19,13 +19,48 @@
         </div>
 
         <div class="conteinar">
+            <!--ピックアップ商品-->
+        <h2 style="text-align: center;">ピックアップ商品</h2>
+            <div class="d-flex justify-content-center  row col-xs-12 col-sm-12 p-5">
+                @foreach($pickups as $pickup)
+                <div class="card center-block" style="width: 18rem; margin:10px; text-align: center;">
+                    <div class="card-img-top">
+                        <img src="{{asset('image/'.$pickup->imgpath)}}"  width="100%" height="180">
+                        
+                    </div>
+                    <div class="card-body">
+                        <h3>{{$pickup->product_name}}</h3>
+                        <h4>{{$pickup->price}}円</h4>
+                        <br>
+                        <!--商品詳細-->
+                        <div class="">
+                            <form action="product" method="POST" style="margin-bottom: 5px;">
+                                @csrf
+                                <input type="hidden" name="product" value="{{$pickup->product_id}}">
+                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="詳細を見る">
+                            </form>
+                            
+                            <!--カートに追加-->
+                            <form action="mycart" method="POST">
+                                @csrf
+                                <input type="hidden" name="product" value="{{$pickup->product_id}}">
+                                <input type="submit" class="btn btn-secondary btn-lg btn-block" value="カートに追加">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
+        <div class="conteinar">
         <!--商品一覧-->
         <h2 style="text-align: center;">商品一覧</h2>
             <div class="d-flex justify-content-center  row col-xs-12 col-sm-12 p-5">
                 @foreach($datas as $data)
-                <div class="card center-block" style="width: 18rem; margin:10px; text-align: center;">
+                <div class="card center-block" style="width: 25rem; margin:10px; text-align: center;">
                     <div class="card-img-top">
-                        <img src="{{asset('image/'.$data->imgpath)}}"  width="100%" height="180">
+                        <img src="{{asset('image/'.$data->imgpath)}}"  width="100%" height="250">
                         
                     </div>
                     <div class="card-body">
@@ -50,6 +85,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                {{$datas->links()}}
             </div>
         </div>
     </main>

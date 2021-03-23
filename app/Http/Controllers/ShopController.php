@@ -11,10 +11,13 @@ use Illuminate\Support\ViewErrorBag;
 
 class ShopController extends Controller
 {
-    public function ShowProduct(){
-        $datas=DB::select('select * from products');
+    public function ShowProduct(Product $product){
+        $datas=$product->Product_list();
         //dd($datas);
-        return view('main',['datas'=>$datas]);
+
+        $pickups=$product->pickup_Product();
+        //dd($pickups);
+        return view('main',compact('datas','pickups'));
     }
 
     public function ShowCart(Request $request){
@@ -22,7 +25,7 @@ class ShopController extends Controller
         $product_id=$request->product;
         //dd($product_id);
 
-        $details=DB::select('select * from products where product_id=:product_id',[$product_id]);
+        $details=DB::select('SELECT * FROM products WHERE product_id=:product_id',[$product_id]);
         //dd($details);
 
         return view('detail',compact('details'));
