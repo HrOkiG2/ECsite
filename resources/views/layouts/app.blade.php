@@ -23,8 +23,10 @@
 </head>
 <body>
     <div class="container-fulid">
-        <header class="header">
-            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="fixed-top">
+        <!--右寄せ-->
+                
+            <nav class="navbar  navbar-light bg-light">
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse"
                     data-target="#navmenu1"
@@ -32,41 +34,45 @@
                     aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button><p class="ml-auto">{{ Auth::user()->name }}さん,ようこそ！</p>
                 <div class="collapse navbar-collapse" id="navmenu1">
                     @if(Auth::check())
-                        <div class="navbar-nav">
+                        <div class="navbar-nav d-flex">
                             <!--左寄せ-->
-                            <div class="navbar-left">
+                            <div class="">
+                                <li>
                                     <a href="/display">
                                         <img src="image/cart.png" class="navf"> 
-                                        <p>カートを見る</p>
+                                        <span>カートを見る</span>
                                     </a>
-                                <a class="" href="{{ route('logout') }}">
-                                    <img><!--写真を入れるｆヵｊｆ；あｊはｇ；あｇ；おくぇｒじょｇｐｑひどあほ；ｇ-->
-                                    <p>ログアウト</p>
-                                </a>
+                                </li>
+                                <br>
+                                <li>
+                                    <a class="" href="{{ route('logout') }}">
+                                        <img src="image/logouto.png" class="navf">
+                                        <span>ログアウト</span>
+                                    </a>
+                                </li>
+                                
                             </div>
-                            <!--右寄せ-->
-                            <div class="navbar-right">
-                                {{ Auth::user()->name }}さん,ようこそ！
-                            </div>
+                            
                     @else
                             <a href="{{ route('login') }}">
                                 <img src="image/login.png" class="navf">
-                                <p>ログイン</p>
+                                <span>ログイン</span>
                             </a>
-
+                            <br>
                             <a href="{{ route('register') }}">
                                 <img src="image/register.png" class="navf">
-                                <p>新規会員登録</p>
+                                <span>新規会員登録</span>
                             </a>
                         </div>
                     @endif
                 </div>
                     
             </nav>
-
+        </div>
+        <header class="header">
             <h1 class="title">
                 <a class="top_back" href="{{ url('/') }}">
                         {{ config('app.name', 'The　Promontroy') }}

@@ -10,8 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use vendor\laravel\framework\src\Illuminate\Routing;
 use App\Http\Controllers\ShopController;
+//use Illuminate\Routing\Route;
 
 Route::get('/','ShopController@ShowProduct');
 
