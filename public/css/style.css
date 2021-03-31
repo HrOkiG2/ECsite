@@ -29,6 +29,11 @@ body{
     width: 26px;
 }
 
+.commitment{
+    margin: 100px;
+    background-color: #EEEEEE;
+}
+
 .elment-child{
     padding: 20px 0;
     font-weight: 600;
@@ -41,12 +46,22 @@ body{
     padding-top: 15px;
     padding-bottom: 15px;
 }
+li {
+    list-style: none;
+  }
 
-.box{
-    display: flex;
-    background-color: #EEEEEE;
-    
-}
-.box div:nth-child(odd){
+
+.a:nth-of-type(even){
     flex-direction: row-reverse;
+}
+
+.contents{
+    margin-bottom: 100px;
+    opacity: 0;
+    text-align: center;
+}
+
+.contents.show{
+    opacity: 1;
+    transition: 2s;
 }
