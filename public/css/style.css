@@ -1,67 +1,89 @@
-.header{
-    background-image: url(/image/top.png);
-    width: 100%;
-    height: 400px;
-}
-body{ 
-    padding-top: 60px; 
+.container-fluid {
+    padding: 0;
+    margin: 0;
 }
 
-.navmenu1{
+h2{
+    color:#FAF0E6;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.navmenu1 {
     display: flex;
 }
 
-.title{
-    text-align: center;
-    font-weight: 800;
-    font-size: xx-large;
-    padding: 100px;
-    color: white;
+.title {
+    background-image: url(/image/danro.png);
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.top_back{
+.top_back {
     color: white;
     font-style: oblique;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
 }
 
-.navf{
+.nav-bar {
+    margin: auto;
+    text-align: right;
+}
+
+.navf {
     height: 20px;
     width: 26px;
 }
 
-.commitment{
-    margin: 100px;
-    background-color: #EEEEEE;
+.commitment {
+    background-image: url(/image/umi.png);
+    width: 100%;
 }
-
-.elment-child{
-    padding: 20px 0;
-    font-weight: 600;
-    font-size: large;
-    color:black;
-    
-}
-
-.section2{
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-li {
-    list-style: none;
-  }
-
-
-.a:nth-of-type(even){
-    flex-direction: row-reverse;
-}
-
-.contents{
-    margin-bottom: 100px;
+.contents {
     opacity: 0;
+    display: inline-block;
+}
+
+.element{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
 }
 
-.contents.show{
+.elment-child {
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: large;
+    color: black;
+    text-align: center;
+}
+
+.section2 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.pickup {
+    background-image: url(/image/sky.png);
+}
+li {
+    list-style: none;
+}
+
+.a:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.contents.show {
     opacity: 1;
     transition: 2s;
+}
+
+.list {
+    background-image: url(/image/top.png);
 }
