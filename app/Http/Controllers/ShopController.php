@@ -13,7 +13,7 @@ class ShopController extends Controller
 {
     public function ShowProduct(Product $product){
         $datas=$product->Product_list();
-        //dd($datas);
+        // dd($datas);
 
         $pickups=$product->pickup_Product();
         //dd($pickups);
@@ -26,7 +26,7 @@ class ShopController extends Controller
         //dd($product_id);
 
         $details=DB::select('SELECT * FROM products WHERE product_id=:product_id',[$product_id]);
-        //dd($details);
+        // dd($details);
 
         return view('detail',compact('details'));
     }

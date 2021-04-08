@@ -1,89 +1,466 @@
-.container-fluid {
-    padding: 0;
-    margin: 0;
-}
-
-h2{
-    color:#FAF0E6;
-    font-size: xx-large;
-    font-weight: bold;
-}
-.navmenu1 {
-    display: flex;
-}
-
-.title {
-    background-image: url(/image/danro.png);
+@charset "UTF-8";
+/* 共通部分 */
+header{
+    position: fixed;
     width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
+    height: 100px;
+    z-index: 100;
+    background-color:gray ;
+}
+
+h1{
+    font-size: 200%;
+    font-weight: bolder;
+    text-align: center;
+    padding: 30px 0;
+    margin: 0 auto;
     align-items: center;
 }
 
-.top_back {
-    color: white;
-    font-style: oblique;
+h2{
+    text-align: center;
     font-size: 200%;
-    font-weight: bold;
-    text-align: center;
+    font-weight: bolder;
+    padding: 50px 0;
 }
 
-.nav-bar {
-    margin: auto;
-    text-align: right;
+h3{
+    font-size: 150%;
+    font-weight: 800;
 }
 
-.navf {
-    height: 20px;
-    width: 26px;
-}
 
-.commitment {
+/* ===============背景画像================= */
+.policy{
     background-image: url(/image/umi.png);
-    width: 100%;
 }
-.contents {
-    opacity: 0;
-    display: inline-block;
+.pickup{
+    background-image: url(/image/danro.png);
 }
+.product{
+    background-image: url(/image/wall.png);
+}
+@media screen and (max-width:639px) {
+    /*スマホ用のcssを記述*/
+    
 
-.element{
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
+    #input{
+        display: none;
+    }
 
-.elment-child {
-    padding: 20px 0;
-    font-weight: 600;
-    font-size: large;
-    color: black;
-    text-align: center;
-}
+    .humberger{
+        display: flex;
+        flex-direction: row;
+      }
+    
+    .menu{
+        margin-top: 10%;
+    }
 
-.section2 {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
+    /* .line_box{
+        display: block;
+        margin-top: 50%;
+    } */
+    .line{
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        margin:3px ;
+    }
 
-.pickup {
-    background-image: url(/image/sky.png);
-}
-li {
-    list-style: none;
-}
+    .nav_content{
+        width: 200px;
+        height: 100%;
+        background-color:orange;
+        transform: translateX(-200px);
+        position: fixed;
+    }
 
-.a:nth-of-type(even) {
-    flex-direction: row-reverse;
+    input#input:checked ~ .nav_content{
+            /* checkboxのinputが押されると紐付けたnavが開く */
+           transform: translateX(0px); 
+           transition:all 0.3s ease-out;
+    }
+
+    input#input:checked ~ .back{
+        /* ラベルをnav以外の場所に行き渡る設定　ここでは黒い画面をタッチしたらnavが閉じる */
+        position: absolute;
+        width: 100%;
+        height: 1500px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .list{
+        border-bottom: solid 2px black;
+        padding: 20px 20px 20px 0;
+    }
+
+    .list a{
+        font-weight: bold;
+        padding-left: 10px;
+    }
+
+    .nav_img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .policy{
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid transparent;
+        padding-top: 100px;
+    }
+
+    .commit{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .plan{
+        width: 80%;
+        margin:0 auto;
+        padding: 0;
+    }
+    .policy_img{
+        width: 100%;
+        height: 300px;
+    }
+
+    .policy_content{
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    div.policy_content p{
+        padding: 15px;
+        font-weight: bold;
+    }
+
+    .pickup{
+        width: 100%;
+        height: auto;
+    }
+    .pickup_item{
+        width: 80%;
+        margin: 0 auto 50px;
+        background-color: #fff;
+    }
+
+    .pickup_img{
+        width: 100%;
+        height: 300px;
+    }
+
+    .pickup_content{
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0 ;
+    }
+
+    .pickup_button{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .in_cart{
+        display: inline-block;
+        border-radius: 5px;
+        background-color: red;
+        padding: 15px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        width: 50%;
+        float: left;
+    }
+
+    .product_detail{
+        display: inline-block;
+        border-radius: 5px;
+        background-color: green;
+        padding: 15px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        width: 50%;
+        white-space: nowrap
+    }
+
+    button:hover{
+        background-color: #59b1eb;
+        letter-spacing: 5px;
+    }
+
+
+
+    .product{
+        width: 100%;
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+    .product_card{
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        background-color: darkgoldenrod;
+    }
+    .product_img{
+        width: 100%;
+    }
+
+    .product_parts{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+
+    .product_button_box{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .product_button{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #668ad8;
+        color: #FFF;
+        border-bottom: solid 4px #627295;
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    .price{
+        padding-left: 5%;
+    }
+
+    footer{
+        background-color: magenta;
+        width: 100%;
+        height: auto;
+    }
+
 }
+@media screen and (min-width:640px) {
+/*タブレット，pc用のcssを記述*/
+    .humberger{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #input{
+        display: none;
+    }
+
+    .line{
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        margin:3px ;
+    }
+
+    .nav_content{
+        width: 200px;
+        height: 100%;
+        background-color:orange;
+        transform: translateX(-200px);
+        position: fixed;
+    }
+
+    input#input:checked ~ .nav_content{
+            /* checkboxのinputが押されると紐付けたnavが開く */
+        transform: translateX(0px); 
+        transition:all 0.3s ease-out;
+    }
+
+    input#input:checked ~ .back{
+        /* ラベルをnav以外の場所に行き渡る設定　ここでは黒い画面をタッチしたらnavが閉じる */
+        position: absolute;
+        width: 100%;
+        height: 1500px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .list{
+        border-bottom: solid 2px black;
+        padding: 20px 20px 20px 0;
+    }
+
+    .list a{
+        font-weight: bold;
+        padding-left: 10px;
+    }
+
+    .nav_img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .policy{
+        width: 100%;
+        height: auto;
+        padding: 150px 0 80px 0;
+    }
+
+    .commit{
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+    }
+    .plan{
+        width: 50%;
+    }
+    .policy_img{
+        width: 100%;
+        height: 100%;
+        padding: 50px 0;
+    }
+    .policy_content{
+        height: auto;
+        padding: 50px 0;
+    }
+    .policy_content p{
+        font-weight: bolder;
+        font-style: italic;
+        padding: 30px;
+    }
+
+    .pickup{
+        width: 100%;
+        height: auto;
+    }
+    .pickup_item{
+        width: 80%;
+        margin: 0 auto 50px;
+        display: flex;
+        flex-direction: row;
+        padding: 0 20px 0 40px;
+        background-color:rgba(0,153,255,0.2);
+    }
+
+    .pickup_item:nth-child(even){
+        display: flex;
+        flex-direction: row-reverse;   
+    }
+
+    .pick{
+        width: 50%;
+        padding: 5%;
+    }
+    .pickup_img{
+        width: 100%;
+    }
+    .pickup_cotent_box{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 90%;
+        padding: 3% 0;
+    }
+
+    .product_parts{
+        display: flex;
+        flex-direction: row;
+        padding: 50px 0 50px 0;
+    }
+
+    .price{
+        margin-left: 10%;
+    }
+    
+
+    .pickup_button{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 10px;
+        position: absolute;
+        bottom: 0;
+    }
+    .in_cart{
+        display: inline-block;
+        border-radius: 5px;
+        background-color: red;
+        padding: 15px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        width: 50%;
+        float: left;
+    }
+
+    .product_detail{
+        display: inline-block;
+        border-radius: 5px;
+        background-color: green;
+        padding: 15px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+        width: 50%;
+        white-space: nowrap
+    }
+
+    button:hover{
+        background-color: #59b1eb;
+        letter-spacing: 5px;
+    }
+
+
+    .product{
+        width: 100%;
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+    .card_box{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        margin: 0 auto 50px;
+        background-color:rgba(255,255,255,0.8);
+        flex-wrap: wrap;
+    }
+
+    .product_card{
+        width: 30%;
+        background-color: salmon;
+        margin: 10%;
+    }
+    
+    .product_img{
+        width: 100%;
+        height: 200px;
+    }
+
+    .product_button_box{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .product_button{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #668ad8;
+        color: #FFF;
+        border-bottom: solid 4px #627295;
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    footer{
+        background-color: saddlebrown;
+    }
+}
+   
 
 .contents.show {
     opacity: 1;
     transition: 2s;
 }
 
-.list {
-    background-image: url(/image/top.png);
-}

@@ -20,60 +20,73 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{asset('css/reset.css')}}" rel="stylesheet">
 
     <link href = " https://unpkg.com/sanitize.css " rel = "stylesheet " />
     <title>The Promontroy</title>
 </head>
 
 <body>
-    <div class="container-fulid">
-        <header>
-            <nav class="navbar navbar-dark" style="background-color: #C0C0C0;">
-                <div class="d-flex justify-content-between">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1" aria-controls="navmenu1" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a href="{{ url('/')}}" class="navbar-brand nav-bar">The Promontroy</a>
-                    @if(Auth::check())
-                    <p class="nav-bar">{{ Auth::user()->name }}さん,ようこそ！</p>
+    <div class="">
+    <header>
+        <div class="humberger">
+            <div class="menu">
+                <input type="checkbox" name="" id="input">
+                <div class="label_line"><!-- divタグで囲み、サイズ指定できるようにする -->
+                    <label for="input" class="line_box">
+                        <!-- 三本線の為のdivタグ -->
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </label>
                 </div>
-                <div class="collapse navbar-collapse" id="navmenu1">
-                    <div class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/display">
-                                <img src="image/cart.png" class="navf">
-                                <span>カートを見る</span>
-                            </a>
-                        </li>
-                        <br>
-                        <li class="nab-item">
-                            <a class="" href="{{ route('logout') }}">
-                                <img src="image/logouto.png" class="navf">
-                                <span>ログアウト</span>
-                            </a>
-                        </li>
-                        @else
-                        <a href="{{ route('login') }}">
-                            <img src="image/login.png" class="navf">
-                            <span>ログイン</span>
-                        </a>
-                        <br>
-                        <a href="{{ route('register') }}">
-                            <img src="image/register.png" class="navf">
-                            <span>新規会員登録</span>
-                        </a>
-                    </div>
-                    @endif
+            
+                <label for="input" class="back"><div></div></label>
+            
+                <div class="nav_content">
+                    <nav>
+                        <ul>
+                            @if(Auth::check())
+                            <li class="ist">{{ Auth::user()->name }}さん,ようこそ！</li>
+
+                            <li class="list">
+                                <a href="/display">
+                                    <img src="image/cart.png" class="nav_img">
+                                    <span>カートを見る</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a class="" href="{{ route('logout') }}">
+                                    <img src="image/logouto.png" class="nav_img">
+                                    <span>ログアウト</span>
+                                </a>
+                            </li>
+                            @else
+                            <li class="list">
+                                <a href="{{ route('login') }}">
+                                <img src="image/login.png" alt="login" class="nav_img">    
+                                <span>ログイン</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="{{ route('register') }}">
+                                    <img src="image/register.png" class="nav_img">
+                                    <span>新規会員登録</span>
+                                </a>
+                            </li>
+                            @endif
+                        </ul>
+                    </nav>
                 </div>
-            </nav>
-            <div class="title">
-                <h1>
-                    <a class="top_back text-monospace d-flex" href="{{ url('/') }}">
-                        {{ config('app.name', 'The　Promontroy') }}
-                    </a>
-                </h1>
             </div>
-        </header>
+            
+            <h1>
+                <a class="top_back text-monospace d-flex" href="{{ url('/') }}">
+                    {{ config('app.name', 'The　Promontroy') }}
+                </a>
+            </h1>
+        </div>
+    </header>
     </div>
 
     <!--content-->

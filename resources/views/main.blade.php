@@ -1,60 +1,85 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
-    <div class="commitment">
-        <h2 class="pt-5 pb-5" style="text-align: center;">The Promontroy<br>３つのこだわり</h2><br>
-        <div class="contents">
-            <div class="row">
-                <div class="element col-xs-12 col-sm-12 col-md-12 col-lg-6 ">
-                    <img src="{{asset('image/pickup.png')}}" class="img-thumbnail">
+<div class="policy">
+            <h2>ThePromontroy<br>3つのこだわり</h2>
+            <div class="commit">
+                <div class="plan">
+                    <img src="image/pickup.png" alt="pickup" class="policy_img">
                 </div>
-                <div class="element　col-xs-12 col-sm-12 col-md-12 col-lg-6 ml-2">
-                    <p class="elment-child">①「Simple Is Fashionable」をテーマに大人の為のおしゃれをお届けします！</p>
-                    <p class="elment-child">②京都発！熟練の職人さんによるこだわりの刺繍を全ての商品に！</p>
-                    <p class="elment-child">③全品送料無料！もちろん沖縄も</p>
+                <div class="policy_content">
+                    <p>
+                        ①「Simple Is Fashionable」をテーマに大人の為のおしゃれをお届けします！
+                    </p>
+                    <p>
+                        ②京都発！熟練の職人さんによるこだわりの刺繍を全ての商品に！
+                    </p>
+                    <p>
+                        ③全品送料無料！もちろん沖縄も!
+                    </p>
                 </div>
-
             </div>
         </div>
-    </div>
-</div>
 <!--ピックアップ商品-->
-<div class="container-fulid">
-    <div class="pickup">
-        <h2 class="pt-5 pb-5" style="text-align: center;">ピックアップ商品</h2>
-        @foreach($pickups as $pickup)
-        <li class="contents">
-            <div class="row a　d-flex">
-                <div class="col-lg-6 col-xs-12 col-sm-12 mt-3 mb-3">
-                    <img src="{{asset('image/'.$pickup->imgpath)}}" class="img-thumbnail" style="width: 80%; margin:0 auto;">
+<div class="pickup">
+            <h2>おすすめアイテム</h2>
+            @foreach($pickups as $pickup)
+                <div class="pickup_item">
+                    <div class="pick">
+                        <img src="{{asset('image/'.$pickup->imgpath)}}" alt="" class="pickup_img">
+                    </div>
+                    
+                    <div class="pickup_cotent_box">
+                        <div class="pickup_content">
+                            <p>{{$pickup->detail}}</p>
+                            <div class="product_parts">
+                                <h3>{{$pickup->product_name}}</h3>
+                                <p class="price">{{$pickup->price}}</p>
+                            </div>
+                        </div>
+                        <div class="pickup_button">
+                            <form action="mycart" method="POST">
+                                @csrf
+                                <button type="submit" value="{{$pickup->product_id}}" name="product" class="in_cart">
+                                    カートに入れる
+                                </button>
+                                
+                                <button type="submit" value="" name="product_detail" class="product_detail">
+                                    商品の詳細を見る
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <h3 class="mt-3 mb-3">{{$pickup->product_name}}</h3>
-                    <p>{{$pickup->detail}}</p>
-                    <p>{{$pickup->price}}</p>
-
-                    <!--カートに追加-->
-                    <form action="mycart" method="POST" class="pb-5">
-                        @csrf
-                        <input type="hidden" name="product" value="{{$pickup->product_id}}">
-                        <input type="submit" class="btn btn-secondary btn-lg btn-block" value="カートに追加">
-                    </form>
-                </div>
-            </div>
-        </li>
-        @endforeach
-    </div>
-</div>
+                @endforeach
+        </div>
 
 <!--商品一覧-->
-<div class="conteinar-fulid list">
+<div class="product">
+            <h2>商品一覧</h2>
+            <div class="card_box">
+                @foreach($datas as $data)
+                <div class="product_card">
+                    <img src="{{asset('image/'.$data->imgpath)}}" alt="" class="product_img">
     
-        <h2 class="pt-5 pb-5" style="text-align: center;">商品一覧</h2>
-        <div class="d-flex justify-content-center">
-            {{$datas->links()}}
+                    <div class="product_parts">
+                        <h3>{{$data->product_name}}</h3>
+                        <p class="price">{{$data->price}}</p>
+                    </div>
+    
+                    
+                    <form action="" method="POST">
+                        <div class="product_button_box">
+                            <button type="submit" value="" name="product_button" class="product_button">
+                                商品の詳細を見る
+                            </button>
+                        </div>
+                    </form>
+                
+                </div>
+                @endforeach
+                {{$datas->links()}}
+            </div>
         </div>
-    
-</div>
 
 <script src="{{ asset('/js/sample.js') }}"></script>
 @endsection
