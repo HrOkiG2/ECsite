@@ -34,6 +34,9 @@ Route::get('/mycart','ShopController@deleteCart');
 //購入
 Route::post('/purchase','ShopController@Purchase');
 
+//商品詳細
+Route::post('/detail','ShopController@ShowCart');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

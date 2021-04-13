@@ -16,14 +16,14 @@ class ShopController extends Controller
         // dd($datas);
 
         $pickups=$product->pickup_Product();
-        //dd($pickups);
+        // dd($pickups);
         return view('main',compact('datas','pickups'));
     }
 
     public function ShowCart(Request $request){
 
-        $product_id=$request->product;
-        //dd($product_id);
+        $product_id=$request->product_detail;
+        // dd($product_id);
 
         $details=DB::select('SELECT * FROM products WHERE product_id=:product_id',[$product_id]);
         // dd($details);
